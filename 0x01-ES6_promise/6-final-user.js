@@ -5,11 +5,10 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   const signUpUserPromise = signUpUser(firstName, lastName)
     .then(
       (value) => ({ status: 'fulfilled', value }),
-      (error) => ({ status: 'rejected', value: error })
-    );
+      (error) => ({ status: 'rejected', value: error }),    );
 
     const uploadPhotoPromise = uploadPhoto(fileName)
-    .then(
+  .then(
       (value) => ({ status: 'fulfilled', value }),
       (error) => ({ status: 'rejected', value: error }),
     );

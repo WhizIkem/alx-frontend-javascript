@@ -1,15 +1,18 @@
 function cleanSet(set, startString) {
-  if (!startString) return '';
+  if (typeof startString !== 'string' || startString === '') return '';
 
-  let result = '';
+  let result = [];
 
   set.forEach(value => {
     if (value.startsWith(startString)) {
-      result += value.replace(startString, '') + '-';
+      const substring = value.replace(startString, '');
+      if (substring) {
+        result.push(substring);
+      }
     }
   });
 
-  return result.slice(0, -1);
+  return result.join('-');
 }
 
 export default cleanSet;

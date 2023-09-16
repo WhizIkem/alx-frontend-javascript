@@ -3,14 +3,14 @@ function cleanSet(set, startString) {
 
   let result = [];
 
-  set.forEach(value => {
-    if (value.startsWith(startString)) {
-      const substring = value.replace(startString, '');
+  for (let item of set) {
+    if (item.startsWith(startString)) {
+      const substring = item.slice(startString.length);
       if (substring) {
         result.push(substring);
       }
     }
-  });
+  }
 
   return result.join('-');
 }

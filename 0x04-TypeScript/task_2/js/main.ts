@@ -60,3 +60,25 @@ function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee("$500"));
+
+// isDirector function, accepts employee as argument
+// used as type predicate and if the employee is a director
+type Employee = Director | Teacher;
+function isDirector(employee: Employee): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// executeWork function that accepts employee as argument
+// if employee is a Director, call workDirectorTasks
+// if employee is a Teacher, call workTeacherTasks
+function executeWork(employee: Employee): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+// test executeWork function
+console.log(executeWork(createEmployee(200))); // Teacher
+console.log(executeWork(createEmployee(1000))); // Director

@@ -36,3 +36,15 @@ const director1: Directors = {
   numberOfReports: 17,
 }
 console.log(director1);
+
+// printTeacher function
+// accepts two arguments firstName and lastName
+// returns the first letter of the firstName and the full lastName
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+console.log(printTeacher("John", "Doe"));

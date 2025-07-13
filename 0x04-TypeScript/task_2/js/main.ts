@@ -82,3 +82,21 @@ function executeWork(employee: Employee): string {
 // test executeWork function
 console.log(executeWork(createEmployee(200))); // Teacher
 console.log(executeWork(createEmployee(1000))); // Director
+
+// string literal type for Subjects
+type Subjects = 'Math' | 'History';
+
+// teachClass function that accepts todayClass as argument
+// return string Teaching Math if todayClass is Math
+// return string Teaching History if todayClass is History
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+}
+
+// test teachClass function
+console.log(teachClass('Math')); // Teaching Math
+console.log(teachClass('History')); // Teaching History
